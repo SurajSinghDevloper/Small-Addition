@@ -4,79 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Measurement</title>
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Add.com</title>
     <style>
         body {
-            padding: 50px 100px;
+            background-color: yellowgreen;
         }
 
         h1 {
             text-align: center;
         }
 
+        .inp {
+            display: inline-block;
+            width: 300px;
+            height: 40px;
+            font-size: 35px;
+        }
+
         #container {
             text-align: center;
             background-color: aqua;
+            height: 200px;
+            width: 1200px;
             padding: 50px;
+            margin: 15px;
+            box-shadow: 0px 9px 15px;
+
         }
 
         .input {
-            display: inline-block;
-
-        }
-
-        .inp {
-            padding: 5px 100px;
-            margin: 10px;
-            font-size: 30px;
-            font-weight: bold;
             width: 250px;
-            text-align: center;
+            height: 30px;
+            font-size: 20px;
+            text-align: right;
         }
 
-        label {
+        #but {
+            height: 40px;
+            width: 100px;
+            padding: 10px
+        }
+
+        #but:hover {
+            background-color: #4caf50;
+            transition-duration: 0.4s;
+
+        }
+
+
+        .result {
+            width: 300px;
+            height: 40px;
             font-size: 30px;
-            text-align: center;
+            text-align: right;
 
         }
     </style>
+    <script>
+        function add() {
+            var numOne, numTwo, sum;
+            numOne = parseInt(document.getElementById("first").value);
+            numTwo = parseInt(document.getElementById("second").value)
+            sum = numOne + numTwo;
+            document.getElementById("answer").value = sum;
+        }
+
+    </script>
 </head>
 
 <body>
-    <h1>Temperature Converter</h1>
+    <h1>Adding</h1>
     <div id="container">
-        <div class="input">
-            <label>Celsius</label><br>
-            <input type="number" value="0" id="cel" class="inp">
+        <div class="inp">
+            <input id="first" placeholder="0.0" class="input">
         </div>
-        <div class="input">
-            <label>Fahrenheit</label><br>
-            <input type="number" value="32" id="fah" class="inp">
+        <div class="inp">
+            <input id="second" placeholder="0.0" class="input">
+        </div>
+        <br>
+        <br>
+        <div>
+            <button onclick="add()" id="but">Add</button>
+        </div>
+        <br>
+        <br>
+        <div>
+            <input id="answer" class="result" placeholder="0.0">
         </div>
     </div>
-    <script>
-        var cell = document.getElementById("cell");
-        var fah = document.getElementById("fah");
-
-        cel.addEventListener('input', function () {
-            let c = this.value;
-            let f = (c * 9 / 5) + 32;
-            if (!Number.isInteger(f)) {
-                f = f.toFixed(4);
-            }
-            fah.value = f;
-        });
-
-        fah.addEventListener('input', function () {
-            let f = this.value;
-            let c = (f - 32) * 5 / 9;
-            if (!Number.isInteger(c)) {
-                c = c.toFixed(4);
-            }
-            cel.value = c;
-        });
-    </script>
 </body>
 
 </html>
